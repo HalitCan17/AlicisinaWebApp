@@ -1,0 +1,21 @@
+# --- Build (Derleme) Dosyaları ---
+bin/
+obj/
+
+# --- Visual Studio / Editör Ayarları ---
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- İşletim Sistemi Dosyaları ---
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# --- Loglar ve Geçici Dosyalar ---
+*.log
+*.tmp
+

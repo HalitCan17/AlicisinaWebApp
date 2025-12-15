@@ -1,0 +1,135 @@
+@model Vehicle
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">İlanı Düzenle</h3>
+                </div>
+                <div class="card-body">
+
+                    <form asp-controller="Ads" asp-action="Edit" method="post" enctype="multipart/form-data">
+
+                        <input type="hidden" asp-for="vehicleId" />
+
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">İlan Başlığı</label>
+                            <input asp-for="Title" class="form-control" required />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="brandId" class="form-label">Marka</label>
+                                <select asp-for="brandId" class="form-control" asp-items="ViewBag.Brands">
+                                    <option value="">Marka Seçiniz</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="model" class="form-label">Model</label>
+                                <input asp-for="model" class="form-control" required />
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="serie" class="form-label">Seri / Alt Model</label>
+                            <input asp-for="serie" class="form-control" placeholder="Örn: 1.6 TDI Comfortline" />
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="price" class="form-label">Fiyat (TL)</label>
+                                <input asp-for="price" type="number" class="form-control" required />
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="kilometer" class="form-label">Kilometre</label>
+                                <input asp-for="kilometer" type="number" class="form-control" required />
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="year" class="form-label">Yıl</label>
+                                <input asp-for="year" type="number" class="form-control" required />
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="color" class="form-label">Renk</label>
+                            <input asp-for="color" class="form-control" required placeholder="Örn: Siyah" />
+                            <span asp-validation-for="color" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="gear" class="form-label">Vites Tipi</label>
+                                <select asp-for="gear" class="form-control">
+                                    <option value="Manuel">Manuel</option>
+                                    <option value="Otomatik">Otomatik</option>
+                                    <option value="Yarı Otomatik">Yarı Otomatik</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="fuelType" class="form-label">Yakıt Tipi</label>
+                                <select asp-for="fuelType" class="form-control">
+                                    <option value="Benzin">Benzin</option>
+                                    <option value="Dizel">Dizel</option>
+                                    <option value="LPG">LPG</option>
+                                    <option value="Elektrik">Elektrik</option>
+                                    <option value="Hibrit">Hibrit</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="bodyType" class="form-label">Kasa Tipi</label>
+                                <select asp-for="bodyType" class="form-control">
+                                    <option value="Sedan">Sedan</option>
+                                    <option value="Hatchback">Hatchback</option>
+                                    <option value="SUV">SUV</option>
+                                    <option value="Station Wagon">Station Wagon</option>
+                                    <option value="Cabrio">Cabrio</option>
+                                    <option value="Coupe">Coupe</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="enginePower" class="form-label">Motor Gücü (HP)</label>
+                                <input asp-for="enginePower" type="number" class="form-control" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="engineDisplacement" class="form-label">Motor Hacmi (cc)</label>
+                                <input asp-for="engineDisplacement" type="number" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Açıklama</label>
+                            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.imageUrl))
+                        {
+                            <div class="mb-3 p-2 border rounded">
+                                <label class="form-label fw-bold">Mevcut Resim:</label> <br />
+                                <img src="@Model.imageUrl" alt="Araç Resmi" width="150" class="img-thumbnail" />
+                            </div>
+                        }
+
+                        <div class="mb-3">
+                            <label class="form-label">Resmi Değiştir (İsteğe Bağlı)</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-action="Index" class="btn btn-secondary me-md-2">İptal</a>
+                            <button type="submit" class="btn btn-warning text-white">Güncelle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

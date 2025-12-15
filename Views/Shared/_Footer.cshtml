@@ -1,0 +1,94 @@
+<footer class="bg-dark text-white pt-5 pb-4 mt-5">
+    <div class="container text-center text-md-start">
+        <div class="row text-center text-md-start">
+            
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 fw-bold text-warning">
+                    <i class="fa fa-car me-2"></i>Alicisina Galeri
+                </h5>
+                <p class="text-white-50">
+                    Türkiye'nin en güvenilir araç alım-satım platformu. 
+                    Hayalinizdeki araca ulaşmak hiç bu kadar kolay olmamıştı.
+                    Güvenli ticaretin tek adresi.
+                </p>
+                <div class="mt-4">
+                    <a href="#" class="btn btn-outline-light btn-floating m-1 rounded-circle" role="button"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1 rounded-circle" role="button"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1 rounded-circle" role="button"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1 rounded-circle" role="button"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 fw-bold text-warning">Kategoriler</h6>
+                <p>
+                    <a asp-controller="Vehicle" asp-action="Index" asp-route-id="1" class="text-white text-decoration-none footer-link">Otomobil</a>
+                </p>
+                <p>
+                    <a asp-controller="Vehicle" asp-action="Index" asp-route-id="2" class="text-white text-decoration-none footer-link">Motosiklet</a>
+                </p>
+                <p>
+                    <a asp-controller="Vehicle" asp-action="Index" asp-route-id="?" class="text-white text-decoration-none footer-link">Tüm İlanlar</a>
+                </p>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 fw-bold text-warning">Kurumsal</h6>
+                <p>
+                    <a asp-action="Index" class="text-white text-decoration-none footer-link">Ana Sayfa</a>
+                </p>
+                <p>
+                    <a asp-action="About" class="text-white text-decoration-none footer-link">Hakkımızda</a>
+                </p>
+                <p>
+                    <a asp-action="Rules" class="text-white text-decoration-none footer-link">İlan Verme Kuralları</a>
+                </p>
+                <p>
+                    <a asp-action="Help" class="text-white text-decoration-none footer-link">Yardım & Destek</a>
+                </p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 fw-bold text-warning">İletişim</h6>
+                <p><i class="fas fa-home me-3"></i> Sakarya, Serdivan, TR</p>
+                <p><i class="fas fa-envelope me-3"></i> info@alicisina.com</p>
+                <p><i class="fas fa-phone me-3"></i> + 90 212 123 45 67</p>
+                <p><i class="fas fa-print me-3"></i> + 90 532 123 45 67</p>
+            </div>
+        </div>
+
+        <hr class="mb-4 border-secondary">
+
+        <div class="row align-items-center">
+            <div class="col-md-7 col-lg-8">
+                <p class="text-center text-md-start text-white-50">
+                    © @DateTime.Now.Year Copyright:
+                    <a href="#" class="text-warning text-decoration-none"><strong> AlicisinaWeb Yazılım A.Ş.</strong></a>
+                    - Tüm Hakları Saklıdır.
+                </p>
+            </div>
+            <div class="col-md-5 col-lg-4">
+                <p class="text-center text-md-end text-white-50 small">
+                    Designed with <i class="fa fa-heart text-danger"></i> by <span class="text-white">Aytek AKSU,Halit CAN,Berkan AKTEN,Hüseyin ZAPTİYE,Eren Yusuf CAN</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<style>
+    .footer-link {
+        transition: color 0.3s ease;
+    }
+    .footer-link:hover {
+        color: #ffc107 !important; /* Bootstrap Warning Sarısı */
+        padding-left: 5px; /* Hafif sağa kayma efekti */
+    }
+    .btn-floating {
+        transition: all 0.3s;
+    }
+    .btn-floating:hover {
+        background-color: #ffc107;
+        color: #000;
+        transform: translateY(-3px);
+    }
+</style>

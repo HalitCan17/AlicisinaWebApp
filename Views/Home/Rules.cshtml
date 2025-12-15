@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "İlan Verme Kuralları";
+}
+
+<div class="bg-primary text-white py-5 mb-5 rounded-4 shadow position-relative overflow-hidden">
+    <div class="container position-relative z-index-1 text-center">
+        <h1 class="display-5 fw-bold"><i class="fas fa-clipboard-check me-3"></i>İlan Verme Kuralları</h1>
+        <p class="lead mb-0 text-white-50">Daha güvenli ve hızlı bir alışveriş için lütfen kuralları okuyunuz.</p>
+    </div>
+    <i class="fas fa-gavel position-absolute text-white opacity-10" style="font-size: 15rem; right: -50px; bottom: -50px;"></i>
+</div>
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-header bg-success text-white fw-bold py-3">
+                    <i class="fas fa-check-circle me-2"></i> İzin Verilenler
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check text-success me-2"></i> Aracın güncel ve net fotoğraflarını yüklemek.</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check text-success me-2"></i> Gerçek ve doğru fiyat bilgisi girmek.</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check text-success me-2"></i> Araç hasar kaydı ve boya durumunu şeffafça belirtmek.</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check text-success me-2"></i> Sadece size ait olan aracı satmak.</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-check text-success me-2"></i> Resmi dil kurallarına uygun açıklama yazmak.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-header bg-danger text-white fw-bold py-3">
+                    <i class="fas fa-times-circle me-2"></i> Yasak Olanlar
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-times text-danger me-2"></i> Temsili veya internetten indirilmiş fotoğraf kullanmak.</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-times text-danger me-2"></i> "Acil Satılık", "Kelepir" gibi yanıltıcı başlıklar.</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-times text-danger me-2"></i> Telefon numarası içeren ilan fotoğrafları.</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-times text-danger me-2"></i> Aynı araç için birden fazla ilan açmak.</li>
+                        <li class="list-group-item border-0 ps-0"><i class="fas fa-times text-danger me-2"></i> Siyasi veya ahlaka aykırı içerik barındırmak.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-warning d-flex align-items-center mt-4 rounded-3 shadow-sm" role="alert">
+        <i class="fas fa-exclamation-triangle flex-shrink-0 me-3 fs-3"></i>
+        <div>
+            <strong>Dikkat!</strong> Kurallara uymayan ilanlar editörlerimiz tarafından haber verilmeksizin yayından kaldırılacaktır.
+            Israrlı kural ihlallerinde üyeliğiniz askıya alınabilir.
+        </div>
+    </div>
+</div>

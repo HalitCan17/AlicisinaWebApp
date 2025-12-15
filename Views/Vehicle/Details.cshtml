@@ -1,0 +1,148 @@
+@model Vehicle
+
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="display-6 fw-bold">
+            <a asp-controller="Vehicle" asp-action="Index" asp-route-id="@Model.brand.CategoryId"
+                class="btn btn-outline-secondary">
+                <i class="fa fa-arrow-left"></i> Listeye Dön
+            </a>
+            <h1 class="text-center my-3">@Model.Title</h1>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="p-1 border rounded">
+                    <img src="@Model.imageUrl" class="img-fluid rounded w-100" style="height: 500px; object-fit: cover;"
+                        alt="@Model.Title">
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 fw-bold text-primary">İlan Açıklaması</h5>
+                </div>
+                <div class="card-body">
+                    <div class="card-text text-muted">
+                        <p class="card-text">
+                            @Model.Description
+                        </p>
+                        <hr>
+                    </div>
+                    <div class="alert alert-warning">
+                        <small>⚠️<strong>Uyarı:</strong>Kapora göndermeden önce aracı mutlaka görün.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+
+            <div class="card shadow border-0 mb-3 bg-light">
+                <div class="card-body text-center">
+                    <h6 class="text-muted text-uppercase">Satış Fiyatı</h6>
+                    <h2 class="text-danger fw-bold mb-0">@Model.price.ToString("N0") ₺</h2>
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0 mb-3">
+                <div class="card-header bg-primary text-white">
+                    <span class="fw-bold">Araç Bilgileri</span>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">İlan No:</span>
+                        <strong>@(100000 + Model.vehicleId)</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">İlan Tarihi:</span>
+                        <strong>@Model.announcementDate.ToString("dd MMMM yyyy")</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Marka:</span>
+                        <strong>@Model.brand.brandName</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Seri:</span>
+                        <strong>@Model.serie</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Model:</span>
+                        <strong>@Model.model</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Renk:</span>
+                        <strong>@Model.color</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Yıl:</span>
+                        <strong>@Model.year</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Kilometre:</span>
+                        <strong>@Model.kilometer.ToString("N0") km</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Vites:</span>
+                        <strong>@Model.gear</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Yakıt:</span>
+                        <strong>@Model.fuelType</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Kasa Tipi:</span>
+                        <strong>@Model.bodyType</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Motor Gücü:</span>
+                        <strong>@Model.enginePower</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Motor Hacmi:</span>
+                        <strong>@Model.engineDisplacement</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-muted">Araç Durumu</span>
+                        <strong>@Model.vehicleStatus</strong>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px;">
+                            <span class="fs-4">A</span>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-0 fw-bold">Alicisina Galeri</h6>
+                            <small class="text-muted">Kurumsal Üye</small>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        @if (Model.AppUser != null && !string.IsNullOrEmpty(Model.AppUser.Phone))
+                        {
+                            <a href="tel:@Model.AppUser.Phone" class="btn btn-success">
+                                <i class="fa fa-phone"></i> Ara: @Model.AppUser.Phone
+                            </a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-secondary" disabled>
+                                <i class="fa fa-phone-slash"></i> Telefon Belirtilmemiş
+                            </button>
+                        }
+
+                        <button class="btn btn-outline-dark">
+                            <i class="fa fa-comment"></i> Mesaj Gönder
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+﻿@model List<Category>
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="hero-section d-flex align-items-center text-white my-4 rounded-5 overflow-hidden shadow-lg">
+    <div class="overlay"></div> <div class="container text-center position-relative z-index-1">
+        <h1 class="display-3 fw-bold mb-3 animate-up">Yolculuk Başlasın</h1>
+        <p class="lead mb-5 fs-4 animate-up delay-1">
+            Türkiye'nin en güvenilir araç alım-satım platformuna hoş geldiniz.
+            <br>Aradığınız araç bir tık uzağınızda.
+        </p>
+
+        <div class="row justify-content-center animate-up delay-2">
+            <div class="col-md-8 col-lg-6">
+                <form asp-controller="Vehicle" asp-action="Index">
+                    <div class="input-group input-group-lg bg-white p-2 rounded-pill shadow">
+                        <input type="text" name="q" class="form-control border-0 rounded-pill ps-4" placeholder="Hangi aracı arıyorsunuz? (Örn: BMW 3.20)">
+                        <button type="submit" class="btn btn-primary rounded-pill px-5 fw-bold d-flex align-items-center">
+                            <i class="fa fa-search me-2"></i> ARA
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 mt-4">
+    <div class="text-center mb-5">
+        <h6 class="text-primary fw-bold text-uppercase ls-2">Keşfet</h6>
+        <h2 class="fw-bold">Hangi Aracı Arıyorsun?</h2>
+        <div class="divider mx-auto bg-primary mt-3"></div>
+    </div>
+
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 mb-4">
+                <a asp-controller="Vehicle" asp-action="Index" asp-route-id="@item.categoryId" class="text-decoration-none">
+                    <div class="card category-card h-100 border-0 text-white overflow-hidden shadow-lg rounded-4">
+                        <img src="@(item.categoryName == "Otomobil" ?  "/images/otomobil.jpg": "/images/motorsiklet.jpg")" 
+                             class="card-img w-100 h-100 object-fit-cover transition-zoom" alt="@item.categoryName">
+                        
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-4 gradient-overlay">
+                            <h3 class="fw-bold mb-1">@item.categoryName</h3>
+                            <p class="mb-0 text-white-50 small">İlanları İncele <i class="fa fa-arrow-right ms-2"></i></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="bg-light py-5">
+    <div class="container py-4">
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 hover-lift">
+                    <div class="icon-box bg-primary-subtle text-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                        <i class="fa fa-shield-alt fs-2"></i>
+                    </div>
+                    <h4 class="fw-bold">Güvenli Alışveriş</h4>
+                    <p class="text-muted">Tüm satıcılarımız doğrulanmış kurumsal üyelerden oluşur. Sürpriz yaşamazsınız.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 hover-lift">
+                    <div class="icon-box bg-success-subtle text-success rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                        <i class="fa fa-bolt fs-2"></i>
+                    </div>
+                    <h4 class="fw-bold">Hızlı İletişim</h4>
+                    <p class="text-muted">Satıcılarla anında mesajlaşın veya tek tıkla arayarak randevu oluşturun.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 hover-lift">
+                    <div class="icon-box bg-warning-subtle text-warning rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                        <i class="fa fa-users fs-2"></i>
+                    </div>
+                    <h4 class="fw-bold">Geniş Portföy</h4>
+                    <p class="text-muted">Binlerce araç seçeneği arasından bütçenize en uygun olanı kolayca bulun.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 my-4">
+    <div class="bg-dark text-white rounded-5 p-5 text-center position-relative overflow-hidden">
+        <div class="position-relative z-index-1">
+            <h2 class="display-5 fw-bold mb-3">Arabanı Satmaya Hazır mısın?</h2>
+            <p class="lead mb-4 text-white-50">Hemen ücretsiz ilan ver, milyonlarca alıcıya ulaş.</p>
+            <a href="/Ads/Index" class="btn btn-light btn-lg rounded-pill px-5 fw-bold">İlan Ver</a>
+        </div>
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(circle at top right, #333, #000);"></div>
+    </div>
+</div>
+
+<style>
+    /* Hero Section Ayarları */
+    .hero-section {
+        height: 80vh; /* Ekranın %80'ini kaplar */
+        background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        margin-top: -1.5rem; /* Navbar boşluğunu kapatmak için */
+    }
+    
+    .overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5); /* Resmin üzerine siyah perde */
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+    }
+
+    .z-index-1 { position: relative; z-index: 1; }
+
+    /* Kategori Kartları */
+    .category-card { height: 350px !important; cursor: pointer; }
+    .transition-zoom { transition: transform 0.5s ease; }
+    .category-card:hover .transition-zoom { transform: scale(1.1); }
+    .gradient-overlay {
+        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    }
+
+    /* Diğer Efektler */
+    .hover-lift { transition: transform 0.3s; }
+    .hover-lift:hover { transform: translateY(-10px); }
+    
+    .divider { height: 4px; width: 60px; border-radius: 2px; }
+    .ls-2 { letter-spacing: 2px; }
+
+    /* Animasyonlar (Basit giriş efekti) */
+    .animate-up { animation: fadeInUp 1s ease-out forwards; opacity: 0; transform: translateY(30px); }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+
+    @@keyframes fadeInUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

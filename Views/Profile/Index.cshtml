@@ -1,0 +1,43 @@
+@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Profilim";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Profil Bilgileri</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-4 text-muted">Ad</div>
+                        <div class="col-sm-8 fw-bold">@Model.FirstName</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4 text-muted">Soyad</div>
+                        <div class="col-sm-8 fw-bold">@Model.LastName</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4 text-muted">E-posta</div>
+                        <div class="col-sm-8 fw-bold">@Model.Email</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4 text-muted">Telefon</div>
+                        <div class="col-sm-8 fw-bold">@Model.Phone</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4 text-muted">Doğum Tarihi</div>
+                        <div class="col-sm-8 fw-bold">@(Model.BirthDate == DateTime.MinValue ? "-" : Model.BirthDate.ToShortDateString())</div>
+                    </div>
+
+                    <div class="mt-4">
+                        <a asp-action="Edit" class="btn btn-primary">Bilgileri Düzenle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

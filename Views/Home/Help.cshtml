@@ -1,0 +1,102 @@
+@{
+    ViewData["Title"] = "Yardım & Destek";
+}
+
+<div class="text-center py-5">
+    <h6 class="text-primary fw-bold text-uppercase ls-2">Destek Merkezi</h6>
+    <h1 class="fw-bold mb-3">Size Nasıl Yardımcı Olabiliriz?</h1>
+    <p class="text-muted w-50 mx-auto">Sıkça sorulan sorulara göz atın veya bizimle iletişime geçin.</p>
+</div>
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            
+            <div class="accordion shadow-sm" id="faqAccordion">
+                
+                <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            <i class="fas fa-money-bill-wave text-success me-3"></i> İlan vermek ücretli mi?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Hayır, <strong>Alicisina Galeri</strong> üzerinde bireysel kullanıcılar için ilan vermek tamamen ücretsizdir. 
+                            Şu an için her kullanıcının sınırsız ilan hakkı bulunmaktadır.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            <i class="fas fa-camera text-primary me-3"></i> İlanım neden onaylanmadı?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            İlanlarınız editörlerimiz tarafından "İlan Verme Kuralları" çerçevesinde incelenir. 
+                            Eğer fotoğraflarınız net değilse, fiyat bilgisinde tutarsızlık varsa veya yanıltıcı bilgi içeriyorsa ilanınız reddedilmiş olabilir.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                            <i class="fas fa-lock text-warning me-3"></i> Şifremi unuttum, ne yapmalıyım?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Giriş yap sayfasında bulunan "Şifremi Unuttum" bağlantısına tıklayarak, kayıtlı e-posta adresinize gelen link üzerinden yeni şifrenizi belirleyebilirsiniz.
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                            <i class="fas fa-car-crash text-danger me-3"></i> Dolandırıcılık şüphesi var, ne yapmalıyım?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Lütfen şüpheli gördüğünüz ilanı "Şikayet Et" butonu ile bize bildirin. 
+                            Alicisina Galeri olarak güvenliğinizi önemsiyoruz. Asla aracı görmeden kapora göndermeyiniz.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center mt-5 bg-light p-5 rounded-4 border border-dashed">
+                <h4 class="fw-bold">Hala sorunuz mu var?</h4>
+                <p class="text-muted">Ekibimiz size yardımcı olmak için hazır.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="mailto:info@alicisina.com" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="fas fa-envelope me-2"></i> Mail Gönder
+                    </a>
+                    <a href="tel:+905321234567" class="btn btn-primary rounded-pill px-4">
+                        <i class="fas fa-phone-alt me-2"></i> Bizi Ara
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .accordion-button:not(.collapsed) {
+        background-color: #e7f1ff; /* Açılınca tatlı bir mavi olsun */
+        color: #0d6efd;
+    }
+    .accordion-button:focus {
+        box-shadow: none; /* Mavi çizgiyi kaldır, daha temiz dursun */
+        border-color: rgba(0,0,0,.125);
+    }
+    .border-dashed {
+        border-style: dashed !important;
+    }
+</style>

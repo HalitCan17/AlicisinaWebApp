@@ -1,0 +1,139 @@
+@model Vehicle
+
+<div class="container mt-5">
+    <h2>Yeni Araç İlanı Oluştur</h2>
+    <hr />
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>İlan Başlığı</label>
+                <input asp-for="Title" class="form-control" required placeholder="Örn: Temiz Aile Aracı" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="categoryId" class="form-label">Kategori (Araç Türü)</label>
+                <select asp-for="categoryId" class="form-control" asp-items="ViewBag.Categories">
+                    <option value="">Seçiniz (Otomobil, Motosiklet vb.)</option>
+                </select>
+                <span asp-validation-for="categoryId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Marka</label>
+                <select asp-for="brandId" class="form-select" asp-items="ViewBag.Brands">
+                    <option value="">-- Marka Seçiniz --</option>
+                </select>
+                <span asp-validation-for="brandId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Model (Örn: 3.20i)</label>
+                <input asp-for="model" class="form-control" required />
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label>Fiyat (TL)</label>
+                <input asp-for="price" type="number" class="form-control" required />
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label>Kilometre</label>
+                <input asp-for="kilometer" type="number" class="form-control" required />
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label>Yıl</label>
+                <input asp-for="year" type="number" class="form-control" />
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label>Seri</label>
+                <input asp-for="serie" class="form-control" placeholder="Opsiyonel" />
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label>Renk</label>
+                <input asp-for="color" class="form-control" />
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label>Vites Tipi</label>
+                <select asp-for="gear" class="form-select">
+                    <option>Manuel</option>
+                    <option>Otomatik</option>
+                    <option>Yarı Otomatik</option>
+                </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label>Yakıt Tipi</label>
+                <select asp-for="fuelType" class="form-select">
+                    <option>Benzin</option>
+                    <option>Dizel</option>
+                    <option>LPG</option>
+                    <option>Hibrit</option>
+                    <option>Elektrik</option>
+                </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label asp-for="bodyType" class="form-label">Kasa / Motor Tipi</label>
+                <select asp-for="bodyType" class="form-control">
+                    <option value="">Seçiniz</option>
+                    <optgroup label="Otomobil">
+                        <option value="Sedan">Sedan</option>
+                        <option value="Hatchback">Hatchback</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Station Wagon">Station Wagon</option>
+                        <option value="Cabrio">Cabrio</option>
+                        <option value="Coupe">Coupe</option>
+                    </optgroup>
+                    <optgroup label="Motosiklet">
+                        <option value="Scooter">Scooter</option>
+                        <option value="Racing">Racing (Yarış)</option>
+                        <option value="Naked">Naked</option>
+                        <option value="Chopper">Chopper / Cruiser</option>
+                        <option value="Touring">Touring</option>
+                        <option value="Cross">Cross</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Motor Gücü</label>
+                <input asp-for="enginePower" class="form-control" placeholder="Örn: 170hp" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Motor Hacmi</label>
+                <input asp-for="engineDisplacement" class="form-control" placeholder="Örn: 1597cc" />
+            </div>
+
+            <div class="col-12 mb-3">
+                <label>İlan Açıklaması</label>
+                <textarea asp-for="Description" class="form-control" rows="5"
+                    placeholder="Aracın detaylı özelliklerini buraya yazınız..."></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 mb-3">
+                <label class="form-label fw-bold">Araç Fotoğrafı</label>
+                <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                <small class="text-muted">Lütfen sadece resim dosyası yükleyiniz.</small>
+            </div>
+        </div>
+        <div class="mb-4 form-check">
+            <input class="form-check-input" type="checkbox" id="rulesCheck" required>
+            <label class="form-check-label" for="rulesCheck">
+                <a href="/Home/Rules" target="_blank" class="text-decoration-none fw-bold">İlan Verme Kurallarını</a>
+                okudum, kabul ediyorum.
+            </label>
+            <div class="invalid-feedback">
+                İlan verebilmek için kuralları kabul etmeniz gerekmektedir.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-lg mt-3">İlanı Yayınla</button>
+    </form>
+</div>

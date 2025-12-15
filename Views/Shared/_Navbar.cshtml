@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-primary" asp-area="" asp-controller="Home" asp-action="Index">
+            <i class="fa fa-car"></i> Alıcısına Galeri
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" asp-controller="Home" asp-action="Index">
+                        <i class="fa-solid fa-house"></i>
+                        Ana Sayfa
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" asp-controller="Vehicle" asp-action="Index">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        Tüm İlanlar
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" asp-controller="Home" asp-action="Rules">
+                        <i class="fa-solid fa-book"></i>
+                        İlan Verme Kuralları
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" asp-controller="Home" asp-action="About">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Yardım & Destek
+                        </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto"> @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item me-3">
+                        <a class="btn btn-outline-danger rounded-pill fw-bold" asp-controller="Ads" asp-action="Create">
+                            <i class="fa fa-plus"></i> Ücretsiz İlan Ver
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user-circle text-primary fs-5 me-1"></i> @User.Identity.Name
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" asp-controller="Profile" asp-action="Index">
+                                    <i class="fa fa-user me-2"></i> Profilim
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-controller="Ads" asp-action="Index">
+                                    <i class="fa fa-list-alt me-2"></i> İlanlarım
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form class="form-inline" asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+                                    <button type="submit" class="dropdown-item text-danger">
+                                        <i class="fa fa-sign-out-alt me-2"></i> Çıkış Yap
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fw-bold" asp-controller="Account" asp-action="Login">
+                            <i class="fa fa-sign-in-alt me-1"></i> Giriş Yap
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary text-white ms-2 px-3 rounded-pill" asp-controller="Account" asp-action="Register">
+                            <i class="fa-solid fa-registered"></i>
+                            Kayıt Ol
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
